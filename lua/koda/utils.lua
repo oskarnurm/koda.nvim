@@ -18,13 +18,13 @@ end
 --- Blends two colors based on alpha transparency.
 --- Adapted from: https://github.com/rose-pine/neovim/blob/main/lua/rose-pine/utilities.lua
 --- Original license: MIT
----@param color string Color to blend
----@param base_color string Base color to blend on
----@param alpha number Between 0 (background) and 1 (foreground)
+---@param fg string Foreground hex color
+---@param bg string Background hex color
+---@param alpha number Blend factor (0 to 1)
 ---@return string # A hex color string like "#RRGGBB"
-function M.blend(color, base_color, alpha)
-	local fg_rgb = color_to_rgb(color)
-	local bg_rgb = color_to_rgb(base_color)
+function M.blend(fg, bg, alpha)
+	local fg_rgb = color_to_rgb(fg)
+	local bg_rgb = color_to_rgb(bg)
 
 	local function blend_channel(i)
 		local ret = (alpha * fg_rgb[i] + ((1 - alpha) * bg_rgb[i]))
