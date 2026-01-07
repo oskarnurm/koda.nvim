@@ -8,7 +8,7 @@
 > [!NOTE]
 > Developed on a 14" XDR retina display, your mileage may vary depending on your screen and brightness.
 
-## Installation:
+## Installation
 
 [lazy.nvim:](https://github.com/folke/lazy.nvim)
 
@@ -18,7 +18,7 @@
   lazy = false, -- make sure we load this during startup if it is your main colorscheme
   priority = 1000, -- make sure to load this before all the other start plugins
   config = function()
-    vim.cmd("colorscheme koda")
+    vim.cmd("colorscheme koda") -- NOTE: no setup() required
   end,
 }
 ```
@@ -34,18 +34,19 @@ vim.cmd("colorscheme koda")
 ```
 
 ## Configuration
+> [!IMPORTANT]
+> Configure options _before_ setting the colorscheme by calling `setup` before `vim.cmd("colorscheme koda")` for changes to take effect. 
 
-You only need to call `setup` if you wish to override the following defaults:
-
+You can call `setup` if you wish to override the following defaults:
 ```lua
 require("koda").setup({
-    bold = true           -- Disable bold for functions and keywords
-    italic = false,       -- Enable italics for comments and strings
-    transparent = false,  -- Enable for transparent backgrounds
+    bold = true           -- disable bold for functions and keywords
+    italic = false,       -- enable italics for comments and strings
+    transparent = false,  -- enable for transparent backgrounds
 
     -- Override colors
     -- These will be merged into the active palette (Dark or Light)
-    -- Example colors for dark background
+    -- Example colors for dark background:
     colors = {
         none        = "none",
         bg_solid    = "#101010",
@@ -92,7 +93,7 @@ When overriding colors, you can use any of the following keys from the colors pa
 | change   | Diff/git related change                    |
 -->
 
-## Plugin support:
+## Explicit Plugin support
 
 - [blink.cmp](https://github.com/saghen/blink.cmp)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
