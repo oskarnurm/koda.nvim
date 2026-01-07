@@ -5,11 +5,11 @@ function M.get(c, opts)
     -- stylua: ignore
 		return {
 			["@function"]              = { link = "Function" },
-			["@function.call"]         = {},
-			["@function.builtin"]      = {},
+			["@function.call"]         = { link = "Function" },
+			["@function.builtin"]      = { link = "Identifier" },
 			["@function.macro"]        = { link = "Macro" },
 			["@function.method"]       = { link = "Function" },
-			["@function.method.call"]  = {},
+			["@function.method.call"]  = { link = "Function" },
 
 			["@keyword"]               = { link = "Keyword" },
 			["@keyword.function"]      = { link = "Keyword" },
@@ -20,7 +20,7 @@ function M.get(c, opts)
 			["@keyword.operator"]      = { link = "Operator" },
 			["@operator"]              = { link = "Operator" },
 			["@punctuation"]           = { link = "Keyword" },
-			["@punctuation.delimiter"] = { link = "Delimiter" },
+			["@punctuation.delimiter"] = { link = "Identifier" },
 			["@punctuation.bracket"]   = { link = "Delimiter" },
 			["@punctuation.special"]   = { link = "Delimiter" },
 
