@@ -17,7 +17,6 @@ vim.g.colors_name = "koda"
 
 -- Apply highlights
 local hl_groups = groups.setup(palette, config.options)
-
 for group, hl in pairs(hl_groups) do
 	vim.api.nvim_set_hl(0, group, hl)
 end

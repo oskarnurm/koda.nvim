@@ -1,5 +1,6 @@
 -- lua/koda/init.lua
 local M = {}
+
 local config = require("koda.config")
 
 ---@param opts table|nil User configuration
