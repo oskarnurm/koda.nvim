@@ -14,9 +14,9 @@ return {
 	func        = "#ffffff",
   string      = "#ffffff",
 	const       = "#d9ba73",
-  highlight   = "#0058D0",
+  highlight   = "#0058d0",
   info        = "#8ebeec",
-	success     = "#86CD82",
+	success     = "#86cd82",
 	warning     = "#d9ba73",
 	danger      = "#ff7676",
 }
