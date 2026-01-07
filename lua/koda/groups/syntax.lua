@@ -34,7 +34,7 @@ function M.get(c, opts)
 			Constant          = { fg = c.const },
 			Macro             = { fg = c.const },
 			Comment           = { fg = c.comment, italic = opts.italic },
-			Todo              = { fg = c.bg, bg = c.fg , bold = true },
+			-- Todo              = { fg = c.fg, bg = c.bg , bold = true }, -- NOTE: it's better if fallbacks handle this
 			Special           = { fg = c.fg },
 			SpecialChar       = { link = "Special" },
 			SpecialComment    = { link = "Comment" },
