@@ -4,9 +4,11 @@
 
 ### Dark
 <img width="1127" height="746" alt="Screenshot 2026-01-07 at 21 34 20" src="https://github.com/user-attachments/assets/e892c373-ebc2-436d-8efa-7d1fd3d1f1a7" />
+<!-- <img width="1170" height="772" alt="koda-dark-orange-gradient-2026-01-08" src="https://github.com/user-attachments/assets/c307a633-f103-4260-a707-4e549429a91b" /> -->
 
 ### Light
 <img width="1127" height="746" alt="Screenshot 2026-01-07 at 21 36 22" src="https://github.com/user-attachments/assets/02a71d9a-3067-4bce-a535-afebb1e190dc" />
+<!-- <img width="1170" height="772" alt="koda-light-orange-gradient-2026-01-08" src="https://github.com/user-attachments/assets/82c11bf2-35dd-4cb1-be3e-b46ad03ca5e0" /> -->
 
 > [!NOTE]
 > Developed on a 14" XDR retina display, your mileage may vary depending on your screen and brightness.
