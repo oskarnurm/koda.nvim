@@ -59,7 +59,6 @@ require("koda").setup({
     -- These will be merged into the active palette (Dark or Light)
     -- Example colors for dark background:
     colors = {
-        none        = "none",
         bg          = "#101010",
         fg          = "#b0b0b0",
         line        = "#272727",
