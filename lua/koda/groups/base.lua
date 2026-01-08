@@ -31,7 +31,7 @@ function M.get(c, opts)
       Visual            = { fg = c.emphasis, bg = utils.blend(c.highlight, c.bg_solid, 0.4) },
       Search            = { link = "Visual" },
       IncSearch         = { link = "Search" },
-      CurSearch         = { link = "Search" },
+      CurSearch         = { fg = c.bg, bg = c.const },
       MatchParen        = { fg = c.fg, bg = c.paren },
       NonText           = { fg = c.line },
       EndOfBuffer       = { fg = c.line },
