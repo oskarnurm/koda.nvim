@@ -102,14 +102,21 @@ require("koda").setup({
 
 ## Plugin support
 
-**NOTE:** I only took the effort to make adjustments for a few plugins. I don't use many, so I am out of touch. Open an issue if something is severely off.
+> Below are some explicitly supported plugins. Note that `Koda` should support most other plugins by default...but I might be out of touch. Feel free to open an issue.
 
 - [blink.cmp](https://github.com/saghen/blink.cmp)
+- [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
+- [diffview.nvim](https://github.com/sindrets/diffview.nvim)
+- [flash.nvim](https://github.com/folke/flash.nvim)
+- [fzf-lua](https://github.com/ibhagwan/fzf-lua)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [mini.pick](https://github.com/nvim-mini/mini.pick)
+- [modes.nvim](https://github.com/mvllow/modes.nvim)
 - [oil.nvim](https://github.com/stevearc/oil.nvim)
 - [snacks.picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
 ## Language support
 
-I feel like most languages have sensible defaults thanks to Neovim's built-in queries, so I've opted not to add anything specific for a language in favor of keeping the footprint smaller.
+I feel like most languages have sensible defaults thanks to Neovim's built-in queries, so I've opted not to add anything specific to a language to keep the footprint smaller. Feel free to open an issue.
