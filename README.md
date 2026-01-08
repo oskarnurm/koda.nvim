@@ -111,6 +111,7 @@ require("koda").setup({
 - [fzf-lua](https://github.com/ibhagwan/fzf-lua)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [mini.pick](https://github.com/nvim-mini/mini.pick)
+- [mini.statusline](https://github.com/nvim-mini/mini.statusline)
 - [modes.nvim](https://github.com/mvllow/modes.nvim)
 - [oil.nvim](https://github.com/stevearc/oil.nvim)
 - [snacks.picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md)

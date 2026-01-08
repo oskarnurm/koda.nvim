@@ -9,14 +9,15 @@ function M.get(c, opts)
     GitSignsDelete = { fg = c.danger },
     -- blink.cmp
     BlinkCmpLabelMatch = { fg = c.const },
-    -- mini.nvim
+    -- mini.pick
     MiniPickMatchRanges = { fg = c.const },
+    -- mini.statusline
     MiniStatuslineModeNormal = { fg = c.bg, bg = c.fg },
     -- telescope.nvim
     TelescopeMatching = { fg = c.const },
     -- oil.nvim
     OilCreate = { fg = c.success },
-    -- snacks.nvim
+    -- snacks.picker
     SnacksPickerDir = { fg = c.keyword },
     SnacksPickerMatch = { fg = c.const },
     -- fzf-lua
