@@ -11,6 +11,8 @@ function M.get(c, opts)
     GitSignsAdd = { fg = c.success },
     GitSignsChange = { fg = c.warning },
     GitSignsDelete = { fg = c.danger },
+    GitSignsDeleteInline = { link = "DiffChange" },
+    GitSignsAddInline = { link = "DiffChange" },
     -- blink.cmp
     BlinkCmpLabelMatch = { fg = c.const },
     -- mini.pick
