@@ -1,46 +1,55 @@
 -- lua/koda/utils.lua
 local M = {}
 
----@param color string
-local function color_to_rgb(color)
-  local function byte(value, offset)
-    return bit.band(bit.rshift(value, offset), 0xFF)
-  end
-
-  local new_color = vim.api.nvim_get_color_by_name(color)
-  if new_color == -1 then
-    new_color = vim.opt.background:get() == "dark" and 000 or 255255255
-  end
-
-  return { byte(new_color, 16), byte(new_color, 8), byte(new_color, 0) }
+--- Converts a hex color string to an RGB table
+---@param hex string
+---@return table
+local function rgb(hex)
+  hex = hex:lower()
+  return {
+    tonumber(hex:sub(2, 3), 16),
+    tonumber(hex:sub(4, 5), 16),
+    tonumber(hex:sub(6, 7), 16),
+  }
 end
 
---- Blends two colors based on alpha transparency.
 --- Adapted from: https://github.com/rose-pine/neovim/blob/main/lua/rose-pine/utilities.lua
 --- Original license: MIT
----@param fg string Foreground hex color
----@param bg string Background hex color
+--- Blends two colors based on alpha transparency.
+---@param foreground string Foreground hex color
+---@param background string Background hex color
 ---@param alpha number Blend factor (0 to 1)
 ---@return string # A hex color string like "#RRGGBB"
-function M.blend(fg, bg, alpha)
-  -- Safeguard against calculating blend with 'none' color.
-  if bg == nil or bg:lower() == "none" then
-    bg = vim.o.background == "dark" and "#101010" or "#fAf9f5"
-  end
-
-  local fg_rgb = color_to_rgb(fg)
-  local bg_rgb = color_to_rgb(bg)
+function M.blend(foreground, background, alpha)
+  local fg = rgb(foreground)
+  local bg = rgb(background)
 
   local function blend_channel(i)
-    local ret = (alpha * fg_rgb[i] + ((1 - alpha) * bg_rgb[i]))
+    local ret = (alpha * fg[i] + ((1 - alpha) * bg[i]))
     return math.floor(math.min(math.max(0, ret), 255) + 0.5)
   end
 
-  local result = string.format("#%02X%02X%02X", blend_channel(1), blend_channel(2), blend_channel(3))
-
-  return result
+  return string.format("#%02X%02X%02X", blend_channel(1), blend_channel(2), blend_channel(3))
 end
 
+--- Adapted from: https://github.com/folke/tokyonight.nvim
+--- Original license: Apache 2.0
+--- Unpacks the 'style' table into main highlight groups
+---@param groups table<string, table>
+---@return table
+function M.resolve(groups)
+  for _, hl in pairs(groups) do
+    if type(hl.style) == "table" then
+      for key, value in pairs(hl.style) do
+        hl[key] = value
+      end
+      hl.style = nil
+    end
+  end
+  return groups
+end
+
+-- Reloads the colorscheme, useful while in development
 function M.reload()
   for name, _ in pairs(package.loaded) do
     if name:match("^koda") then -- This regex ensures we clear koda, koda.utils, koda.groups.editor, etc.

@@ -1,12 +1,18 @@
 -- lua/koda/groups/plugins.lua
 local M = {}
 
+--- Get plugin highlight groups
+---@param c koda.Palette The color palette
+---@param opts koda.Config User configuration
+---return table<string, table> # highlight groups table
 function M.get(c, opts)
   return {
     -- gitsigns.nvim
     GitSignsAdd = { fg = c.success },
     GitSignsChange = { fg = c.warning },
     GitSignsDelete = { fg = c.danger },
+    GitSignsDeleteInline = { link = "DiffChange" },
+    GitSignsAddInline = { link = "DiffChange" },
     -- blink.cmp
     BlinkCmpLabelMatch = { fg = c.const },
     -- mini.pick
