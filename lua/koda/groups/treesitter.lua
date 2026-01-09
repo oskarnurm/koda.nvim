@@ -5,7 +5,7 @@ function M.get(c, opts)
     -- stylua: ignore
     return {
       ["@variable"]                    = { link = "Identifier" },
-      ["@variable.builtin"]            = { fg = c.const, style = opts.styles.variables }, -- e.g. this, self
+      ["@variable.builtin"]            = { fg = c.const  }, -- e.g. this, self
       ["@variable.parameter"]          = { link = "Identifier" },
       ["@variable.parameter.builtin"]  = { link = "Identifier" },
       ["@variable.member"]             = { link = "Identifier" },
@@ -61,7 +61,7 @@ function M.get(c, opts)
       ["@keyword.type"]                = { link = "Keyword" },
       ["@keyword.modifier"]            = { link = "Keyword" },
       ["@keyword.repeat"]              = { link = "Repeat" },
-      ["@keyword.return"]              = { fg = c.emphasis, style = opts.styles.returns },
+      ["@keyword.return"]              = { fg = c.emphasis },
       ["@keyword.debug"]               = { link = "Keyword" },
       ["@keyword.exception"]           = { link = "Exception" },
 
