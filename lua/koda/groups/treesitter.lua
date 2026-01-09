@@ -94,8 +94,8 @@ function M.get(c, opts)
       ["@markup.math"]                 = { link = "Special" },
       ["@markup.link"]                 = { link = "Underlined" },
       ["@markup.link.uri"]             = { link = "Underlined" },
-      ["@markup.list"]                 = { link = "Constant" },
-      ["@markup.raw"]                  = { link = "Constant" },
+      ["@markup.list"]                 = { fg = c.const },
+      ["@markup.raw"]                  = { fg = c.const },
 
       ["@diff.plus"]                   = { link = "DiffAdd" },
       ["@diff.minus"]                  = { link = "DiffDelete" },
