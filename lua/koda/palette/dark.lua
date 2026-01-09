@@ -1,7 +1,6 @@
 -- lua/koda/palette/dark.lua
 -- stylua: ignore
 return {
-  none        = "none",
   bg          = "#101010",
   fg          = "#b0b0b0",
   line        = "#272727",
