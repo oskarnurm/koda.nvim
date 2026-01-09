@@ -57,11 +57,11 @@ require("koda").setup({
     -- Common use case would be to set either `italic = true` or `bold = true` for a desired group.
     -- See `:help nvim_set_hl` for more valid values.
     styles = {
-       functions    = { bold = true },
-       keywords     = {},
-       comments     = {},
-       strings      = {},
-       constants    = {}, -- includes numbers, booleans
+       functions = { bold = true },
+       keywords  = {},
+       comments  = {},
+       strings   = {},
+       constants = {}, -- includes numbers, booleans
     },
 
     -- Override colors
