@@ -6,42 +6,52 @@ local M = {}
 function M.get(c, opts)
     -- stylua: ignore
     return {
-      Keyword           = { fg = c.keyword },
-      Conditional       = { link = "Keyword" },
-      Repeat            = { link = "Keyword" },
-      Label             = { link = "Keyword" },
-      Exception         = { link = "Keyword" },
+      Comment           = { fg = c.comment, style = opts.styles.comments },
+
+      Constant          = { fg = c.const, style = opts.styles.constants },
+      String            = { fg = c.string, style = opts.styles.strings },
+      Character         = { link = "String" },
+      Number            = { fg = c.const, style = opts.styles.numbers },
+      Boolean           = { fg = c.const, style = opts.styles.booleans },
+      Float             = { fg = c.const, style = opts.styles.floats },
+      Identifier        = { fg = c.fg, style = opts.styles.variables },
+      Function          = { fg = c.func, style = opts.styles.functions },
+
       Statement         = { link = "Keyword" },
+      Conditional       = { fg = c.keyword, style = opts.styles.conditionals },
+      Repeat            = { fg = c.keyword, style = opts.styles.loops },
+      Label             = { fg = c.keyword, style = opts.styles.labels },
       Operator          = { link = "Keyword" },
-      Delimiter         = { fg = c.emphasis },
-      Type              = { link = "Keyword" },
-      Structure         = { link = "Keyword" },
-      Identifier        = { fg = c.fg },
+      Keyword           = { fg = c.keyword, style = opts.styles.keywords },
+      Exception         = { fg = c.keyword, style = opts.styles.exceptions },
+
       PreProc           = { link = "Keyword" },
       Include           = { link = "Keyword" },
       Define            = { link = "Keyword" },
+      Macro             = { link = "Constant" },
       PreCondit         = { link = "Keyword" },
+
+      Type              = { fg = c.keyword, style = opts.styles.types },
       StorageClass      = { link = "Keyword" },
+      Structure         = { link = "Keyword" },
       Typedef           = { link = "Keyword" },
-      Tag               = { link = "Keyword" },
-      Function          = { fg = c.func, bold = opts.bold },
-      Title             = { fg = c.emphasis, bold = true },
-      String            = { fg = c.string, italic = opts.italic },
-      Character         = { link = "String" },
-      Number            = { fg = c.const },
-      Boolean           = { fg = c.const },
-      Float             = { fg = c.const },
-      Constant          = { fg = c.const },
-      Macro             = { fg = c.const },
-      Comment           = { fg = c.comment, italic = opts.italic },
-      -- Todo              = { fg = c.fg, bg = c.bg , bold = true }, -- NOTE: it's better if fallbacks handle this
+
       Special           = { fg = c.fg },
       SpecialChar       = { link = "Special" },
+      Tag               = { link = "Keyword" },
+      Delimiter         = { fg = c.emphasis },
       SpecialComment    = { link = "Comment" },
-      Error             = { fg = c.danger },
       Debug             = { fg = c.const },
-      LspInlayHint      = { fg = c.dim },
+
       Underlined        = { underline = true },
+
+      Error             = { fg = c.danger },
+
+      -- Todo              = { fg = c.fg, bg = c.bg , bold = true }, -- let Neovims handle this
+
+      Added             = { fg = c.success },
+      Changed           = { fg = c.changed },
+      Removed           = { fg = c.danger },
     }
 end
 
