@@ -61,7 +61,7 @@ require("koda").setup({
        keywords     = {},
        comments     = {},
        strings      = {},
-       constants    = {},
+       constants    = {}, -- includes numbers, booleans
     },
 
     -- Override colors
