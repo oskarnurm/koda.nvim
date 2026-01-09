@@ -94,15 +94,16 @@ require("koda").setup({
 </details>
 
 <details>
-  <summary>Setting & Changing Colors</summary>
-
+  <summary>Override Colors</summary>
+  
 ```lua
+-- Override specific palette colors to your liking.
+-- Note: The key names (e.g., 'func') must match those found 
+-- in Koda's internal palette (see configuration above).
 require("koda").setup({
-  bold = false,
-  -- For example, add more colors to the theme by changing `func` and `keyword` colors:
   colors = {
-    func = "#4078F2",
-    keyword = "#A627A4",
+    func = "#4078F2",    -- changes the color of functions
+    keyword = "#A627A4", -- changes the color of keywords
   },
 })
 ````
