@@ -33,19 +33,26 @@ function M.blend(foreground, background, alpha)
   return require("koda.utils").blend(foreground, background, alpha)
 end
 
--- TODO: look into a better solution
--- Reload the colorscheme when the background changes
--- HACK: we keep track of 'old_bg' and 'new_bg' to prevent the colorscheme reloading twice during startup
-local old_bg = vim.o.background
-vim.api.nvim_create_autocmd("OptionSet", {
-  pattern = "background",
-  callback = function()
-    local new_bg = vim.v.option_new
-    if vim.g.colors_name == "koda" and old_bg ~= new_bg then
-      old_bg = new_bg
-      vim.cmd("colorscheme koda")
-    end
-  end,
-})
+--- Main function to apply the theme
+function M.load()
+  local config = require("koda.config")
+  local groups = require("koda.groups") -- points to lua/koda/groups/init.lua
+  local palette = M.get_palette()
+
+  -- Reset existing highlights to prevent styles from previous themes from bleeding over.
+  vim.cmd("hi clear")
+  if vim.fn.exists("syntax_on") == 1 then
+    vim.cmd("syntax reset")
+  end
+  vim.g.colors_name = "koda"
+
+  -- Unpack and resolve custom styles
+  local hl_groups = groups.setup(palette, config.options)
+
+  -- Apply highlights
+  for group, hl in pairs(hl_groups) do
+    vim.api.nvim_set_hl(0, group, hl)
+  end
+end
 
 return M
