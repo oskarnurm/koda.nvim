@@ -27,7 +27,7 @@ function M.get_hl(c, opts)
     WinBarNC          = { link = "Normal" },
     WinSeparator      = { fg = c.border },
     Pmenu             = { bg = opts.transparent and "none" or c.bg },
-    PmenuSel          = { fg = c.bg, bg = c.emphasis, bold = true },
+    PmenuSel          = { fg = c.fg, bg = c.line, bold = true },
     PmenuThumb        = { bg = c.fg },
     PmenuMatch        = { fg = c.const, bold = true },
     Visual            = { bg = c.line },
