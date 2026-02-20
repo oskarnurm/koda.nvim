@@ -12,9 +12,11 @@ end
 
 --- Get the current palette with any user overrides applied
 ---@return koda.Palette
-function M.get_palette()
+function M.get_palette(opts)
+  opts = opts or vim.o.background
+
   local config = require("koda.config")
-  local palette = require("koda.palette." .. vim.o.background)
+  local palette = require("koda.palette." .. opts)
 
   -- Apply custom color overrides if they exist
   if config.options.colors and type(config.options.colors) == "table" then
@@ -34,17 +36,17 @@ function M.blend(foreground, background, alpha)
 end
 
 --- Main function to apply the theme
-function M.load()
+function M.load(theme)
   local config = require("koda.config")
   local groups = require("koda.groups") -- points to lua/koda/groups/init.lua
-  local palette = M.get_palette()
+  local palette = M.get_palette(theme)
 
   -- Reset existing highlights to prevent styles from previous themes from bleeding over.
   vim.cmd("hi clear")
   if vim.fn.exists("syntax_on") == 1 then
     vim.cmd("syntax reset")
   end
-  vim.g.colors_name = "koda"
+  vim.g.colors_name = theme and "koda-" .. theme or "koda"
 
   -- Unpack and resolve custom styles
   local hl_groups = groups.setup(palette, config.options)

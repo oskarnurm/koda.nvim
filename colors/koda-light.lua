@@ -1,2 +1,1 @@
-vim.o.background = "light"
-require("koda").load()
+require("koda").load("light")
