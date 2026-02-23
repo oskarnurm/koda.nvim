@@ -14,7 +14,7 @@ return {
   scrollbar_thumb = "#101010",
 
   ansi = {
-    "#e2e2e2",
+    "#ebebeb",
     "#ca0043",
     "#407f00",
     "#926200",
@@ -25,7 +25,7 @@ return {
   },
 
   brights = {
-    "#ababab",
+    "#969ba5",
     "#f30052",
     "#4f9a00",
     "#b07700",
