@@ -7,39 +7,7 @@ Thank you for your interest in contributing to Koda! Pull requests are welcome.
 - Follow the existing code style
 - Follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - Update documentation if needed
-
-### Available Colors
-
-The `c` parameter contains all theme colors. It's best to use as few colors as possible, common colors to use include:
-
-- `c.fg`, `c.bg` - main foreground/background
-- `c.emphasis`, `c.const` - emphasise important stuff
-- `c.info`, `c.success`, `c.warning`, `c.danger` - diagnostic colors
-- `c.green`, `c.orange`, `c.red`, `c.pink`, `c.cyan`, `c.highlight` - color variations
-
-For the complete list of available colors, refer to the [palette/](lua/koda/palette/).
-
-### Highlight Attributes
-
-Each highlight group can have these attributes:
-
-- `fg` - foreground color
-- `bg` - background color
-- `bold` - boolean
-- `italic` - boolean
-- `underline` - boolean
-- `undercurl` - boolean
-- `strikethrough` - boolean
-- `link` - link to another highlight group (e.g., `link = "Normal"`)
-
-## Adding Extras
-
-Refer to the [palette/](lua/koda/palette/) when setting colors. Koda follows a pretty minimal philosophy, so you should almost never need to define extra colors unless in very rare cases.
-
-Please provide screenshots in your PR. It's best if you can compare your results with existing setups.
-
-Below are example screenshots from Ghostty and WezTerm:
-
+  
 ### How to Add Plugin Support
 
 1. **Find the highlight groups**: Check the plugin's documentation, source code or your picker (if it supports it) to find the highlight group names it uses. Otherwise, you can do`:so $VIMRUNTIME/syntax/hitest.vim` to see active highlight groups.
@@ -86,6 +54,30 @@ return M
    - Group related highlights together
    - Add comments if the purpose of a highlight isn't obvious
 
+### Available Colors
+
+The `c` parameter contains all theme colors. It's best to use as few colors as possible. Common colors to use include:
+
+- `c.fg`, `c.bg` - main foreground/background
+- `c.emphasis`, `c.const` - emphasise important stuff
+- `c.info`, `c.success`, `c.warning`, `c.danger` - diagnostic colors
+- `c.green`, `c.orange`, `c.red`, `c.pink`, `c.cyan`, `c.highlight` - color variations
+
+For the complete list of available colors, refer to the [palette/](lua/koda/palette/).
+
+### Highlight Attributes
+
+Each highlight group can have these attributes:
+
+- `fg` - foreground color
+- `bg` - background color
+- `bold` - boolean
+- `italic` - boolean
+- `underline` - boolean
+- `undercurl` - boolean
+- `strikethrough` - boolean
+- `link` - link to another highlight group (e.g., `link = "Normal"`)
+
 ### Tips for Choosing Colors
 
 - Look at similar highlight groups in [base.lua](lua/koda/groups/base.lua) for consistency
@@ -131,4 +123,30 @@ M.plugins = {
 
 That's it! The plugin will now automatically be themed when loaded.
 
-Thank you for contributing!
+## Adding Extras
+
+Refer to the [palette/](lua/koda/palette/) when setting colors. Koda follows a minimal philosophy, so you should almost never need to define extra colors.
+
+Please provide screenshots in your PR. It's best if you can compare your results with existing setups.
+
+Some example screenshots for reference:
+<table width="100%">
+  <tr>
+    <td width="50%">
+      <img src="https://github.com/user-attachments/assets/8429bd4e-f110-496a-82f4-726ad761c547" />
+    </td>
+    <td width="50%">
+      <img src="https://github.com/user-attachments/assets/a1ab3a1d-559e-4396-b8e0-1ecee0fb85c3" />
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="https://github.com/user-attachments/assets/a3996fe1-6cf1-4f2f-9c82-54563149e0f8" />
+    </td>
+    <td width="50%">
+      <img src="https://github.com/user-attachments/assets/85d7fae7-080d-4a6a-99be-9b579123cedd" />
+    </td>
+  </tr>
+</table>
+
+**Thank you for contributing!**
