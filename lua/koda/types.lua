@@ -21,11 +21,15 @@
 ---@field dim string?
 ---@field line string?
 ---@field keyword string?
+---@field type string?
+---@field operator string?
 ---@field comment string?
 ---@field border string?
 ---@field emphasis string?
 ---@field func string?
 ---@field string string?
+---@field char string?
+---@field special string?
 ---@field const string?
 ---@field highlight string?
 ---@field info string?
