@@ -1,1 +1,1 @@
-require("koda").load("koda-glade")
+require("koda").load("glade")

@@ -1,1 +1,1 @@
-require("koda").load("koda-moss")
+require("koda").load("moss")
