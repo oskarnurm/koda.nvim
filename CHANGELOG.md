@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.8.0](https://github.com/oskarnurm/koda.nvim/compare/v2.7.0...v2.8.0) (2026-03-05)
+
+
+### Features
+
+* add more theme variants ([#93](https://github.com/oskarnurm/koda.nvim/issues/93)) ([4fe3844](https://github.com/oskarnurm/koda.nvim/commit/4fe384484afc06140cefe046acb881119c284400))
+* **cache:** implement version-based invalidation ([d895b9e](https://github.com/oskarnurm/koda.nvim/commit/d895b9e0e58376196e126427a32b782079e83fe6))
+* **extras:** add colorscheme for windows terminal ([#91](https://github.com/oskarnurm/koda.nvim/issues/91)) ([175a640](https://github.com/oskarnurm/koda.nvim/commit/175a6405e95c285063bb08fb433d45dfe4fb580e))
+* **mason:** update header colors ([4ae87f8](https://github.com/oskarnurm/koda.nvim/commit/4ae87f86a0696ccce714e0fca0acb71f6ee77356))
+
+
+### Bug Fixes
+
+* **base:** make PmenuSel more visible ([cc4d1d5](https://github.com/oskarnurm/koda.nvim/commit/cc4d1d51dc10d0a22d4a1b0e886bbd04696dbe49))
+* **cache:** ensure cache invalidation triggers for all theme variants ([86d7202](https://github.com/oskarnurm/koda.nvim/commit/86d72022df2f95bf0f9636979b215550fb0f6e90))
+* **extras:** fix terminal palette to use correct koda colors ([335db37](https://github.com/oskarnurm/koda.nvim/commit/335db37b4b6a2c2cede79b44cd0cb07aa0edef59))
+* replace Normal links with explicit fg color references ([#95](https://github.com/oskarnurm/koda.nvim/issues/95)) ([6b3aec4](https://github.com/oskarnurm/koda.nvim/commit/6b3aec481603261667f40ec399337616121e1d7b))
+* restore [@lsp](https://github.com/lsp).typemod.variable.defaultLibrary to highlight builtin globals ([#94](https://github.com/oskarnurm/koda.nvim/issues/94)) ([44a60a2](https://github.com/oskarnurm/koda.nvim/commit/44a60a25e8f2a65ef929f814850efbf0db7735d4))
+
 ## [2.7.0](https://github.com/oskarnurm/koda.nvim/compare/v2.6.0...v2.7.0) (2026-02-19)
 
 
