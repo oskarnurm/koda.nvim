@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.1](https://github.com/oskarnurm/koda.nvim/compare/v2.8.0...v2.8.1) (2026-03-05)
+
+
+### Bug Fixes
+
+* remove the active check when lazy loading plugins ([ac5413e](https://github.com/oskarnurm/koda.nvim/commit/ac5413e6ba7803ea290c9afcfbd672104fa56b4b))
+
 ## [2.8.0](https://github.com/oskarnurm/koda.nvim/compare/v2.7.0...v2.8.0) (2026-03-05)
 
 
