@@ -2,11 +2,14 @@ local M = {}
 
 M.cache = {}
 
---- Reads the given file and returns its contents
+--- Reads a file from disk
 ---@param fname string
----@return string|nil
+---@return string|nil, string|nil
 function M.read(fname)
-  local file = assert(io.open(fname, "r"))
+  local file, err = io.open(fname, "r")
+  if not file then
+    return nil, err
+  end
   local data = file:read("*a")
   file:close()
   return data
@@ -33,8 +36,8 @@ end
 ---@param key string
 ---@return koda.Cache|nil
 function M.cache.read(key)
-  local ok, data = pcall(M.read, M.cache.file(key))
-  if not ok then
+  local data = M.read(M.cache.file(key))
+  if not data then
     return nil
   end
   local is_ok, ret = pcall(vim.json.decode, data, { luanil = { object = true, array = true } })
