@@ -49,6 +49,7 @@ end)
 describe("Cache operations:", function()
   before_each(function()
     Utils.cache.clear()
+    vim.g.colors_name = nil
     Config.setup({ cache = true })
   end)
 
@@ -57,9 +58,9 @@ describe("Cache operations:", function()
   end)
 
   it("generates new cache when config changes", function()
-    require("koda").load("dark")
+    vim.cmd("colorscheme koda-moss") -- FIXME: fix this bandaid
 
-    local cache_before = Utils.cache.read("dark")
+    local cache_before = Utils.cache.read("moss")
     assert.is_not_nil(cache_before, "Initial cache should be created")
 
     -- Change the config
@@ -69,10 +70,10 @@ describe("Cache operations:", function()
     })
 
     -- Manually mimic`koda.load()` to generate new cache because of change
-    local palette = require("koda.palette.dark")
-    local _ = require("koda.groups").setup(palette, Config.options, "dark")
+    local palette = require("koda.palette.moss")
+    local _ = require("koda.groups").setup(palette, Config.options, "moss")
 
-    local cache_after = Utils.cache.read("dark")
+    local cache_after = Utils.cache.read("moss")
 
     assert.are_not.same(
       cache_before.config.opts.styles,
