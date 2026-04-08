@@ -83,7 +83,7 @@ function M.get_hl(c)
     ["@markup.quote"]                  = { link = "Comment" },
     ["@markup.math"]                   = { link = "Special" },
     ["@markup.link"]                   = { fg = c.emphasis, underline = true },
-    ["@markup.link.label"]             = { link = "@markup.link.label" },
+    ["@markup.link.label"]             = { fg = c.emphasis, underline = false },
     ["@markup.link.url"]               = { fg = c.info, underline = true },
     ["@markup.raw"]                    = { fg = c.const },
     ["@markup.raw.block"]              = { fg = c.const },
