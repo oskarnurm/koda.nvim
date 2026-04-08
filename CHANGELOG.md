@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.9.0](https://github.com/oskarnurm/koda.nvim/compare/v2.8.2...v2.9.0) (2026-04-08)
+
+
+### Features
+
+* add configurable variants for auto-switching based on background ([#99](https://github.com/oskarnurm/koda.nvim/issues/99)) ([50b1a67](https://github.com/oskarnurm/koda.nvim/commit/50b1a67b797412885a4af0da7717dce68369d23d))
+
+
+### Bug Fixes
+
+* incorrect treesitter markup link and other small fixes ([#101](https://github.com/oskarnurm/koda.nvim/issues/101)) ([b3698ab](https://github.com/oskarnurm/koda.nvim/commit/b3698ab6c4014d330940b51b304141a51ad5e0e4))
+
 ## [2.8.2](https://github.com/oskarnurm/koda.nvim/compare/v2.8.1...v2.8.2) (2026-03-07)
 
 
