@@ -112,4 +112,16 @@ function M.reload()
   vim.cmd.colorscheme(vim.g.colors_name)
 end
 
+--- Resolves the current theme variant based on user config and background settings
+--@param theme string|nil
+--@return string
+function M.resolve(theme)
+  if theme then
+    return theme
+  end
+  -- Fall back to `vim.o.background` when faulty values are passed to theme = {} during setup
+  local ret = require("koda.config").options.theme[vim.o.background] or vim.o.background
+  return ret
+end
+
 return M

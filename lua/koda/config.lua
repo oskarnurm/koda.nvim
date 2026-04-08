@@ -5,6 +5,10 @@ M._version = "2.8.1" -- x-release-please-version
 ---@type koda.Config
 M.defaults = {
   transparent = false,
+  theme = {
+    dark = "dark",
+    light = "light",
+  },
   styles = {
     functions = { bold = true },
     keywords = {},

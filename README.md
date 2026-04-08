@@ -91,14 +91,14 @@ vim.cmd("colorscheme koda")
 
 ## Usage
 
-> By default, `koda` will automatically switch between dark and light variants based on your `vim.o.background` setting.
+> By default, `koda` will automatically switch between dark and light variants based on your `vim.o.background` setting. You can configure which variant during setup.
 
 ```lua
 vimd.cmd("colorscheme koda") -- auto-switches based on background
 ```
 
 ```vim
-" Explicitly set a variant: 
+" Explicitly set a variant:
 colorscheme koda-dark
 colorscheme koda-light
 colorscheme koda-moss
@@ -106,12 +106,20 @@ colorscheme koda-glade
 ```
 
 ## Default Configuration
+
 > [!IMPORTANT]
 > Configure setup **BEFORE** calling `vim.cmd("colorscheme koda")`.
 
 ```lua
 require("koda").setup({
     transparent = false, -- enable for transparent backgrounds
+
+    -- Set the variants to use when auto-switching based on vim.o.background
+    -- Valid values: "dark", "light", "moss", "glade"
+    theme = {
+      dark = "dark",
+      light = "light",
+    },
 
     -- Automatically enable highlights only for plugins installed by your plugin manager
     -- Currently only supports `lazy.nvim`, `mini.deps` and `vim.pack`
@@ -146,7 +154,7 @@ require("koda").setup({
     end,
 })
 
-````
+```
 
 ## API
 
@@ -165,7 +173,7 @@ You can also manually clear Koda's cache and reload the highlights by running:
 :KodaFetch
 ```
 
- ## Supported Plugins
+## Supported Plugins
 
 - [blink.cmp](https://github.com/saghen/blink.cmp)
 - [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)

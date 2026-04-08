@@ -13,8 +13,7 @@ end
 --- Get the current palette with any user overrides applied
 ---@return koda.Palette
 function M.get_palette(theme)
-  theme = theme or vim.o.background
-
+  theme = require("koda.utils").resolve(theme)
   local config = require("koda.config")
   local palette = require("koda.palette." .. theme)
 
@@ -37,6 +36,7 @@ end
 
 --- Main function to apply the theme
 function M.load(theme)
+  theme = require("koda.utils").resolve(theme)
   local config = require("koda.config")
   local groups = require("koda.groups") -- points to lua/koda/groups/init.lua
   local palette = M.get_palette(theme)

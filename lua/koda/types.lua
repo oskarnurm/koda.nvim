@@ -45,6 +45,7 @@
 ---@class koda.Config
 --- User configuration options for the theme
 ---@field transparent? boolean
+---@field theme? table<"dark"|"light", string>
 ---@field cache? boolean
 ---@field styles? table<string, vim.api.keyset.highlight>
 ---@field colors? table<string, string>
