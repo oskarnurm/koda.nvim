@@ -44,9 +44,20 @@ describe("Cache operations:", function()
     assert.is_nil(Utils.cache.read("dummy-key-1"), "Cache 1 was not cleared")
     assert.is_nil(Utils.cache.read("dummy-key-2"), "Cache 2 was not cleared")
   end)
+end)
+
+describe("Cache operations:", function()
+  before_each(function()
+    Utils.cache.clear()
+    Config.setup({ cache = true })
+  end)
+
+  after_each(function()
+    Utils.cache.clear()
+  end)
 
   it("generates new cache when config changes", function()
-    vim.cmd("colorscheme koda-dark")
+    require("koda").load("dark")
 
     local cache_before = Utils.cache.read("dark")
     assert.is_not_nil(cache_before, "Initial cache should be created")
