@@ -36,7 +36,7 @@ end
 ---@return koda.Highlights
 ---@return table
 function M.setup(colors, opts, theme)
-  -- Always laod base groups
+  -- Always load base groups
   local groups = {
     base = true,
     syntax = true,
