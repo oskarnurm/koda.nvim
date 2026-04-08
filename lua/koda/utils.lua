@@ -113,8 +113,8 @@ function M.reload()
 end
 
 --- Resolves the current theme variant based on user config and background settings
---@param theme string|nil
---@return string
+---@param theme string|nil
+---@return string
 function M.resolve(theme)
   if theme then
     return theme
