@@ -91,7 +91,7 @@ vim.cmd("colorscheme koda")
 
 ## Usage
 
-> By default, `koda` will automatically switch between dark and light variants based on your `vim.o.background` setting. You can configure which variant during setup.
+> By default, `koda` will automatically switch between dark and light variants based on your `vim.o.background` setting. You can configure which variant during `setup()`.
 
 ```lua
 vimd.cmd("colorscheme koda") -- auto-switches based on background
@@ -115,7 +115,7 @@ require("koda").setup({
     transparent = false, -- enable for transparent backgrounds
 
     -- Set the variants to use when auto-switching based on vim.o.background
-    -- Valid values: "dark", "light", "moss", "glade"
+    -- Valid values: 'dark', 'light', 'moss', 'glade'
     theme = {
       dark = "dark",
       light = "light",
