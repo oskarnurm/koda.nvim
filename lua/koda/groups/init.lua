@@ -46,12 +46,12 @@ function M.setup(colors, opts, theme)
 
   -- Load highlights only for plugins managed by plugin managers
   -- Currently only supports lazy.nvim and vim.pack
-  -- Can set `opts.auto=false` to load all highlights as a fallback
+  -- Setting `opts.auto=false` during setup will load all highlights
   if not opts.auto then
     for _, group in pairs(M.plugins) do
       groups[group] = true
     end
-  elseif opts.auto then
+  else
     if package.loaded.lazy then -- try lazy.nvim
       local lazy_plugins = require("lazy.core.config").plugins
       for plugin, group in pairs(M.plugins) do
