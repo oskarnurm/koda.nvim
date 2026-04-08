@@ -31,13 +31,37 @@ describe("Plugin detection logic:", function()
     Utils.cache.clear()
   end)
 
-  it("loads only base groups when auto=true and no managers present", function()
+  it("loads only base groups when package APIs are absent", function()
+    local temp_pack = vim.pack
+    local temp_mini = _G.MiniDeps
+    vim.pack = false
+    _G.MiniDeps = false
+
     local config = require("koda.config")
     local opts = config.extend({ auto = true })
-    local _, loaded = Groups.setup(colors, opts)
+    local _, loaded = Groups.setup(colors, opts, "dark")
 
-    assert.is_true(loaded["base"])
-    assert.is_nil(loaded["gitsigns"])
+    -- Restore
+    vim.pack = temp_pack
+    _G.MiniDeps = temp_mini
+
+    assert.is_true(loaded["base"], "base group should be loaded")
+    assert.is_nil(loaded["gitsigns"], "gitsigns should NOT be loaded")
+  end)
+
+  it("loads only base groups when auto=true, but vim.pack is empty and other package APIs are absent", function()
+    -- Mock vim.pack to return an empty plugin list
+    vim.pack = {
+      get = function()
+        return {}
+      end,
+    }
+    local config = require("koda.config")
+    local opts = config.extend({ auto = true })
+    local _, loaded = Groups.setup(colors, opts, "dark")
+
+    assert.is_true(loaded["base"], "base group should be loaded")
+    assert.is_nil(loaded["gitsigns"], "gitsigns should NOT be loaded")
   end)
 
   it("loads all plugins when auto=false", function()
