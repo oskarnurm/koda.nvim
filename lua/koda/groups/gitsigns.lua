@@ -1,5 +1,7 @@
 local M = {}
 
+local Utils = require("koda.utils")
+
 ---@type koda.HighlightsFn
 function M.get_hl(c)
   -- stylua: ignore
@@ -9,7 +11,8 @@ function M.get_hl(c)
     GitSignsDelete        = { fg = c.danger },
     GitSignsDeleteInline  = { link = "DiffChange" },
     GitSignsAddInline     = { link = "DiffChange" },
-    GitSignsChangeInLine  = { link = "DiffChange" }
+    GitSignsChangeInLine  = { link = "DiffChange" },
+    GitSignsCurrentLineBlame = { fg = Utils.blend(c.fg, c.line, 0.4) },
   }
 end
 
