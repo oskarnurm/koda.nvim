@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.10.0](https://github.com/oskarnurm/koda.nvim/compare/v2.9.0...v2.10.0) (2026-04-15)
+
+
+### Features
+
+* **base:** add hl for SpecialKey and MsgSeparator ([a0b1eb1](https://github.com/oskarnurm/koda.nvim/commit/a0b1eb1db10ce8617273ad26efa79e5df77e0b56))
+* **base:** change matchparen style ([06dbf6c](https://github.com/oskarnurm/koda.nvim/commit/06dbf6cdfa5d29cf5d072675834c552f8e936bba))
+
+
+### Bug Fixes
+
+* **base:** make `NonText` stand out more ([f7cdb32](https://github.com/oskarnurm/koda.nvim/commit/f7cdb3213b0a65e2498013e6448269cb71ac322a))
+* **base:** make current line Nr stand out more ([c99d93a](https://github.com/oskarnurm/koda.nvim/commit/c99d93a3986dac1f7cafb769d175aa0887395099))
+* color tweaks and adjustments ([76bf5ae](https://github.com/oskarnurm/koda.nvim/commit/76bf5ae2263eb4fb9445b1fdc5fb94a2633518d4))
+* **gitsigns:** add missing highlight for inline change preview ([3a6678a](https://github.com/oskarnurm/koda.nvim/commit/3a6678a0c53c0d5fd7b34d008da564932010cb2e))
+* **mini:** make mini.jump2d jump spot stand out more ([4be3380](https://github.com/oskarnurm/koda.nvim/commit/4be33806c663362b90f6b2c685d537d1c4050cd2))
+* **palette:** brighten `success` hue for prettier diffs ([0ccbf34](https://github.com/oskarnurm/koda.nvim/commit/0ccbf347cabc9a2ecb0bb5e1f7e9b4cd2d7c20ea))
+* **render-markdown:** link markdown code to `c.line` ([3da6e33](https://github.com/oskarnurm/koda.nvim/commit/3da6e3350baa441a1eb24e32f3538269138febba))
+* **treesitter:** update `Identifier` color and unlink it from tokens ([fac6705](https://github.com/oskarnurm/koda.nvim/commit/fac670558a307fae70159527cf1a4a4f4b36a449))
+
 ## [2.9.0](https://github.com/oskarnurm/koda.nvim/compare/v2.8.2...v2.9.0) (2026-04-08)
 
 
