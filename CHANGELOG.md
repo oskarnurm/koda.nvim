@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.1](https://github.com/oskarnurm/koda.nvim/compare/v2.10.0...v2.10.1) (2026-04-16)
+
+
+### Bug Fixes
+
+* **gitsigns:** add highlight group for inline blame ([#105](https://github.com/oskarnurm/koda.nvim/issues/105)) ([1e8abcb](https://github.com/oskarnurm/koda.nvim/commit/1e8abcb91215065261d415240570226d959b09f7))
+
 ## [2.10.0](https://github.com/oskarnurm/koda.nvim/compare/v2.9.0...v2.10.0) (2026-04-15)
 
 

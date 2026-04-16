@@ -1,6 +1,6 @@
 local M = {}
 
-M._version = "2.10.0" -- x-release-please-version
+M._version = "2.10.1" -- x-release-please-version
 
 ---@type koda.Config
 M.defaults = {
