@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.10.2](https://github.com/oskarnurm/koda.nvim/compare/v2.10.1...v2.10.2) (2026-05-12)
+
+
+### Bug Fixes
+
+* **base:** inactive statusbar fg lighter ([ebc4763](https://github.com/oskarnurm/koda.nvim/commit/ebc4763bd6ce88bc049070472b029fe2d8f17a8b))
+* **palette:** make keywords lighter for light, glade and moss variants ([#107](https://github.com/oskarnurm/koda.nvim/issues/107)) ([dd989b9](https://github.com/oskarnurm/koda.nvim/commit/dd989b9635e5c8702e4e9cce8b47a57ab0b666b0))
+
 ## [2.10.1](https://github.com/oskarnurm/koda.nvim/compare/v2.10.0...v2.10.1) (2026-04-16)
 
 
