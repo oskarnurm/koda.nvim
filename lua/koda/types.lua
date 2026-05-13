@@ -1,7 +1,7 @@
 ---@class koda.Highlight: vim.api.keyset.highlight
 ---@field style? vim.api.keyset.highlight
 
----@alias koda.Highlights table<string, koda.Highlight>
+---@alias koda.Highlights table<string, koda.Highlight|string>
 --- Values can be either:
 ---  - koda.Highlight: Full highlight definition with fg, bg, style, etc.
 ---  - string: Link to another highlight group (e.g., "Normal")
