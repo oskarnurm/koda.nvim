@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.3](https://github.com/oskarnurm/koda.nvim/compare/v2.10.2...v2.10.3) (2026-05-22)
+
+
+### Bug Fixes
+
+* consistent koda.Highlights type annotation to allow string links ([#109](https://github.com/oskarnurm/koda.nvim/issues/109)) ([24accef](https://github.com/oskarnurm/koda.nvim/commit/24accef3f91edaee2443313dd5f43f479a379ffa))
+
 ## [2.10.2](https://github.com/oskarnurm/koda.nvim/compare/v2.10.1...v2.10.2) (2026-05-12)
 
 
