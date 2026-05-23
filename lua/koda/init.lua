@@ -46,7 +46,7 @@ function M.load(theme)
   if vim.fn.exists("syntax_on") == 1 then
     vim.cmd("syntax reset")
   end
-  vim.g.colors_name = theme and "koda-" .. theme or "koda"
+  vim.g.colors_name = "koda"
 
   -- Unpack and resolve custom styles
   local hl_groups = groups.setup(palette, config.options, theme)
