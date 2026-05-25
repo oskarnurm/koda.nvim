@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.3](https://github.com/oskarnurm/koda.nvim/compare/v2.10.2...v2.10.3) (2026-05-25)
+
+
+### Bug Fixes
+
+* background changes update theme variant ([#112](https://github.com/oskarnurm/koda.nvim/issues/112)) ([07cc4f1](https://github.com/oskarnurm/koda.nvim/commit/07cc4f1bfd7dcdd64168998ec40fe82f6e55155c))
+
 ## [2.10.2](https://github.com/oskarnurm/koda.nvim/compare/v2.10.1...v2.10.2) (2026-05-12)
 
 
