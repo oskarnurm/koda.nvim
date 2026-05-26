@@ -5,7 +5,7 @@
 </div>
 <img src="https://github.com/user-attachments/assets/7a42056d-c0ff-4df9-8ed5-eea39f5b7619#.png" width="1509" height="1186" alt="koda"  />
 
-## Previews
+## Variant Previews
 
 <details>
 <summary>Dark</summary>
@@ -89,20 +89,20 @@ vim.pack.add({
 vim.cmd("colorscheme koda")
 ```
 
-## Theme Variants
+## Selecting Variants
 
-Koda provides two ways to use variants:
+Koda provides two ways to select variants:
 
-1. Automatic: `colorscheme koda` will automatically switch between your preferred light and dark variants when the system background changes. Configure your preferences in setup:
+**1. Automatic:** `colorscheme koda` will automatically switch between your preferred light and dark variants when the system background changes. You can configure these variants during setup:
 
 ```lua
 require("koda").setup({
   theme = { dark = "moss", light = "glade" }
 })
-vimd.cmd("colorscheme koda") -- auto-switches based on background
+vim.cmd("colorscheme koda") -- auto-switches between 'moss' and 'glade' 
 ```
 
-2. Locked: use a specific variant like `colorscheme koda-moss` to lock the theme to that flavor regardless of background settings:
+**2. Locked:** Use a specific variant like `colorscheme koda-moss` to lock the theme, regardless of background settings:
 
 ```vim
 " Explicitly set a variant:
