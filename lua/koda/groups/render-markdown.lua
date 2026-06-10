@@ -7,7 +7,7 @@ function M.get_hl(c)
   local h1 = Utils.blend(c.fg, c.bg, 0.1)
   -- stylua: ignore
   return {
-    RenderMarkdownCode = { bg = c.dim },
+    RenderMarkdownCode = { bg = c.line },
     RenderMarkdownH1Bg = { bg = h1 },
     RenderMarkdownH2Bg = { bg = h1 },
     RenderMarkdownH3Bg = { bg = h1 },

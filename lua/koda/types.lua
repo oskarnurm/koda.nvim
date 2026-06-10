@@ -2,9 +2,9 @@
 ---@field style? vim.api.keyset.highlight
 
 ---@alias koda.Highlights table<string, koda.Highlight>
---- Values can be either:
----  - koda.Highlight: Full highlight definition with fg, bg, style, etc.
----  - string: Link to another highlight group (e.g., "Normal")
+--- Values must be a koda.Highlight table.
+--- To link to another highlight group, use the `link` property:
+--- e.g., { link = "Normal" }
 
 ---@alias koda.HighlightsFn fun(colors: koda.Palette, opts: koda.Config): koda.Highlights
 --- Takes color palette and config, returns highlight definitions

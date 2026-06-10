@@ -36,6 +36,7 @@ end
 
 --- Main function to apply the theme
 function M.load(theme)
+  local name = theme and "koda-" .. theme or "koda"
   theme = require("koda.utils").resolve(theme)
   local config = require("koda.config")
   local groups = require("koda.groups") -- points to lua/koda/groups/init.lua
@@ -46,7 +47,7 @@ function M.load(theme)
   if vim.fn.exists("syntax_on") == 1 then
     vim.cmd("syntax reset")
   end
-  vim.g.colors_name = theme and "koda-" .. theme or "koda"
+  vim.g.colors_name = name
 
   -- Unpack and resolve custom styles
   local hl_groups = groups.setup(palette, config.options, theme)

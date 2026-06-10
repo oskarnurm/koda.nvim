@@ -12,7 +12,7 @@ function M.get_hl(c, opts)
     Number          = { fg = c.const, style = opts.styles.constants },
     Boolean         = { fg = c.const, style = opts.styles.constants },
     Float           = { fg = c.const, style = opts.styles.constants },
-    Identifier      = { fg = c.fg },
+    Identifier      = { fg = c.special },
     Function        = { fg = c.func, style = opts.styles.functions },
     Keyword         = { fg = c.keyword, style = opts.styles.keywords },
     Statement       = { fg = c.keyword },

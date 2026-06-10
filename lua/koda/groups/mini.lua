@@ -6,7 +6,7 @@ function M.get_hl(c)
   return {
     MiniPickMatchRanges       = { fg = c.const },
     MiniStatuslineModeNormal  = { fg = c.bg, bg = c.fg },
-    MiniJump2dSpot            = { fg = c.const },
+    MiniJump2dSpot            = { fg = c.fg, bg = c.line, bold = true },
     MiniIconsGrey             = { fg = c.fg },
     MiniIconsAzure            = { fg = c.emphasis },
     MiniIconsBlue             = { fg = c.info },

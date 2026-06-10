@@ -1,11 +1,12 @@
-local Config = require("koda.config")
-local Utils = require("koda.utils")
+local koda = require("koda")
+local config = require("koda.config")
+local utils = require("koda.utils")
 
 describe("The colorscheme should:", function()
   before_each(function()
     -- Clear cache and package.loaded before each test to test "cold start" logic
-    Config.setup()
-    Utils.reload()
+    config.setup()
+    utils.reload()
   end)
 
   it("load without errors", function()
@@ -24,9 +25,58 @@ describe("The colorscheme should:", function()
 
   it("should generate a cache file", function()
     vim.cmd("colorscheme koda")
-    local cache = Utils.cache.file(vim.o.background)
+    local cache = utils.cache.file(vim.o.background)
     local exists = vim.uv.fs_stat(cache)
 
     assert.is_truthy(exists, "Cache file was not created at " .. cache)
+  end)
+
+  describe("should automatically switch theme variant on background change", function()
+    local initial_background = vim.o.background
+    after_each(function()
+      vim.o.background = initial_background
+    end)
+
+    local function compare()
+      local expected = koda.get_palette(utils.resolve()).bg
+      -- Format from decimal representation back to RGB hexadecimal (how palettes are represented).
+      local actual = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "Normal" }).bg)
+
+      assert.are_equal(expected, actual, "Background (" .. vim.o.background .. ") values differ theme=" .. expected .. " bg=" .. actual)
+    end
+
+    local function toggle_bg()
+      vim.o.background = vim.o.background == "dark" and "light" or "dark"
+    end
+
+    local cases = {
+      ["default"] = {},
+      ["alternative"] = {
+        theme = {
+          dark = "moss",
+          light = "glade",
+        },
+      },
+      ["always-dark"] = {
+        theme = {
+          dark = "dark",
+          light = "dark",
+        },
+      },
+    }
+
+    for name, cfg in pairs(cases) do
+      config.setup(cfg)
+      utils.reload()
+
+      it(name, function()
+        vim.cmd("colorscheme koda")
+        compare()
+        toggle_bg()
+        compare()
+        toggle_bg()
+        compare()
+      end)
+    end
   end)
 end)
