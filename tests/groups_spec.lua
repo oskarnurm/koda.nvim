@@ -37,8 +37,8 @@ describe("Plugin detection logic:", function()
     vim.pack = false
     _G.MiniDeps = false
 
-    local config = require("koda.config")
-    local opts = config.extend({ auto = true })
+    local Config = require("koda.config")
+    local opts = Config.extend({ auto = true })
     local _, loaded = Groups.setup(colors, opts, "dark")
 
     -- Restore
@@ -56,8 +56,8 @@ describe("Plugin detection logic:", function()
         return {}
       end,
     }
-    local config = require("koda.config")
-    local opts = config.extend({ auto = true })
+    local Config = require("koda.config")
+    local opts = Config.extend({ auto = true })
     local _, loaded = Groups.setup(colors, opts, "dark")
 
     assert.is_true(loaded["base"], "base group should be loaded")
@@ -65,8 +65,8 @@ describe("Plugin detection logic:", function()
   end)
 
   it("loads all plugins when auto=false", function()
-    local config = require("koda.config")
-    local opts = config.extend({ auto = false })
+    local Config = require("koda.config")
+    local opts = Config.extend({ auto = false })
     local _, loaded = Groups.setup(colors, opts)
 
     assert.is_true(loaded["telescope"], "Telescope should be laoded")
@@ -80,8 +80,8 @@ describe("Plugin detection logic:", function()
         ["telescope.nvim"] = { name = "telescope.nvim" },
       },
     }
-    local config = require("koda.config")
-    local opts = config.extend({ auto = true })
+    local Config = require("koda.config")
+    local opts = Config.extend({ auto = true })
     local _, loaded = Groups.setup(colors, opts)
 
     assert.is_true(loaded["telescope"], "Telescope should be loaded")
@@ -101,8 +101,8 @@ describe("Plugin detection logic:", function()
         }
       end,
     }
-    local config = require("koda.config")
-    local opts = config.extend({ auto = true })
+    local Config = require("koda.config")
+    local opts = Config.extend({ auto = true })
     local _, loaded = Groups.setup(colors, opts)
 
     assert.is_true(loaded["blink"], "Blink should be loaded via vim.pack")

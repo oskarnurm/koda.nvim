@@ -1,12 +1,12 @@
-local koda = require("koda")
-local config = require("koda.config")
-local utils = require("koda.utils")
+local Koda = require("koda")
+local Config = require("koda.config")
+local Utils = require("koda.utils")
 
 describe("The colorscheme should:", function()
   before_each(function()
     -- Clear cache and package.loaded before each test to test "cold start" logic
-    config.setup()
-    utils.reload()
+    Config.setup()
+    Utils.reload()
   end)
 
   it("load without errors", function()
@@ -25,7 +25,7 @@ describe("The colorscheme should:", function()
 
   it("should generate a cache file", function()
     vim.cmd("colorscheme koda")
-    local cache = utils.cache.file(vim.o.background)
+    local cache = Utils.cache.file(vim.o.background)
     local exists = vim.uv.fs_stat(cache)
 
     assert.is_truthy(exists, "Cache file was not created at " .. cache)
@@ -38,7 +38,7 @@ describe("The colorscheme should:", function()
     end)
 
     local function compare()
-      local expected = koda.get_palette(utils.resolve()).bg
+      local expected = Koda.get_palette(Utils.resolve()).bg
       -- Format from decimal representation back to RGB hexadecimal (how palettes are represented).
       local actual = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "Normal" }).bg)
 
@@ -66,8 +66,8 @@ describe("The colorscheme should:", function()
     }
 
     for name, cfg in pairs(cases) do
-      config.setup(cfg)
-      utils.reload()
+      Config.setup(cfg)
+      Utils.reload()
 
       it(name, function()
         vim.cmd("colorscheme koda")
