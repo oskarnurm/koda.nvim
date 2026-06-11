@@ -3,6 +3,8 @@ local Config = require("koda.config")
 
 local M = {}
 
+M._mem_cache = {}
+
 -- stylua: ignore
 M.plugins = {
   ["blink.cmp"]                = "blink",
@@ -99,7 +101,6 @@ function M.setup(colors, opts, theme)
   table.sort(names)
 
   local config = {
-    colors = colors,
     plugins = names,
     version = Config._version,
     opts = {
@@ -109,10 +110,35 @@ function M.setup(colors, opts, theme)
     },
   }
 
+  -- Peform lightweight primitive comparisons in an attempt to exit early
+  local function cache_valid(c)
+    return c
+      and c.version == config.version
+      and c.opts.transparent == config.opts.transparent
+      and vim.deep_equal(c.plugins, config.plugins)
+      and vim.deep_equal(c.opts.styles, config.opts.styles)
+      and vim.deep_equal(c.opts.colors, config.opts.colors)
+  end
+
   -- Check if we can use cached highlights
   local cache_key = theme or vim.o.background
-  local cache = opts.cache and Utils.cache.read(cache_key)
-  local hl = cache and vim.deep_equal(config, cache.config) and cache.groups
+  local hl
+
+  -- Check in-memory cache first
+  local mem = M._mem_cache[cache_key]
+  if mem and cache_valid(mem.config) then
+    hl = mem.groups
+  end
+
+  -- Check disk cache if not in memory
+  if not hl then
+    local cache = opts.cache and Utils.cache.read(cache_key)
+    hl = cache and cache_valid(cache.config) and cache.groups
+    if hl then
+      -- Populate in-memory cache
+      M._mem_cache[cache_key] = { groups = hl, config = config }
+    end
+  end
 
   -- Generate highlights if cache miss
   if not hl then
@@ -125,6 +151,7 @@ function M.setup(colors, opts, theme)
     Utils.unpack(hl)
     if opts.cache then
       Utils.cache.write(cache_key, { groups = hl, config = config })
+      M._mem_cache[cache_key] = { groups = hl, config = config }
     end
   end
   opts.on_highlights(hl, colors)
