@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.11.0](https://github.com/oskarnurm/koda.nvim/compare/v2.10.3...v2.11.0) (2026-06-11)
+
+
+### Features
+
+* **cache:** optimize cache validation and add in-memory caching layer ([#117](https://github.com/oskarnurm/koda.nvim/issues/117)) ([f7ad749](https://github.com/oskarnurm/koda.nvim/commit/f7ad7495aad7f18f37ff0b39f3e2a643cfa8ca9e))
+* **light:** change keyword and types to be lighter ([39d1584](https://github.com/oskarnurm/koda.nvim/commit/39d15847e8cdf66c94d6db76b68bb4740c98c401))
+
 ## [2.10.3](https://github.com/oskarnurm/koda.nvim/compare/v2.10.2...v2.10.3) (2026-05-25)
 
 
