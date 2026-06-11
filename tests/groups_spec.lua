@@ -2,7 +2,7 @@ local Utils = require("koda.utils")
 local Palette = require("koda.palette.dark")
 local Groups = require("koda.groups")
 
-describe("File integrity:", function()
+describe("The colorscheme", function()
   it("can require every file in koda/groups without syntax errors", function()
     local path = "lua/koda/groups"
     local files = vim.split(vim.fn.glob(path .. "/*.lua"), "\n")
@@ -18,7 +18,7 @@ describe("File integrity:", function()
   end)
 end)
 
-describe("Plugin detection logic:", function()
+describe("Plugin detection logic", function()
   local colors = Palette
   local original_api = vim.pack
 
@@ -69,7 +69,7 @@ describe("Plugin detection logic:", function()
     local opts = Config.extend({ auto = false })
     local _, loaded = Groups.setup(colors, opts)
 
-    assert.is_true(loaded["telescope"], "Telescope should be laoded")
+    assert.is_true(loaded["telescope"], "Telescope should be loaded")
     assert.is_true(loaded["blink"], "Blink should be loaded")
   end)
 

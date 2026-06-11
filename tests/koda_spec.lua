@@ -2,7 +2,7 @@ local Koda = require("koda")
 local Config = require("koda.config")
 local Utils = require("koda.utils")
 
-describe("The colorscheme should:", function()
+describe("The colorscheme should", function()
   before_each(function()
     -- Clear cache and package.loaded before each test to test "cold start" logic
     Config.setup()
@@ -66,10 +66,9 @@ describe("The colorscheme should:", function()
     }
 
     for name, cfg in pairs(cases) do
-      Config.setup(cfg)
-      Utils.reload()
-
       it(name, function()
+        Config.setup(cfg)
+        Utils.reload()
         vim.cmd("colorscheme koda")
         compare()
         toggle_bg()

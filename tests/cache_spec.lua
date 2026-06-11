@@ -1,7 +1,7 @@
 local Utils = require("koda.utils")
 local Config = require("koda.config")
 
-describe("Cache operations:", function()
+describe("Cache operations", function()
   before_each(function()
     Utils.cache.clear()
   end)
@@ -10,7 +10,7 @@ describe("Cache operations:", function()
     Utils.cache.clear()
   end)
 
-  it("can read and write from the cache", function()
+  it("reads back written data unchanged", function()
     local test_key = "test-key"
     local mock_data = {
       groups = { Normal = { fg = "#ffffff", bg = "#000000" } },
@@ -24,21 +24,18 @@ describe("Cache operations:", function()
     assert.are.same(mock_data, cached_data, "Cached data does not match the written data")
   end)
 
-  it("returns nil when reading non-existent cache", function()
+  it("returns nil for a non-existent key", function()
     local cached_data = Utils.cache.read("not-cache-file")
     assert.is_nil(cached_data)
   end)
 
-  it("clears cache successfully", function()
-    -- Create dummy cache files
+  it("removes all entries on clear", function()
     Utils.cache.write("dummy-key-1", { foo = "bar" })
     Utils.cache.write("dummy-key-2", { fizz = "buzz" })
 
-    -- Verify cache exists
     assert.is_not_nil(Utils.cache.read("dummy-key-1"))
     assert.is_not_nil(Utils.cache.read("dummy-key-2"))
 
-    -- Clear cache
     Utils.cache.clear()
 
     assert.is_nil(Utils.cache.read("dummy-key-1"), "Cache 1 was not cleared")
@@ -46,19 +43,23 @@ describe("Cache operations:", function()
   end)
 end)
 
-describe("Cache operations:", function()
+describe("Cache invalidation", function()
+  local saved_colors_name
+
   before_each(function()
     Utils.cache.clear()
+    saved_colors_name = vim.g.colors_name
     vim.g.colors_name = nil
     Config.setup({ cache = true })
   end)
 
   after_each(function()
     Utils.cache.clear()
+    vim.g.colors_name = saved_colors_name
   end)
 
-  it("generates new cache when config changes", function()
-    vim.cmd("colorscheme koda-moss") -- FIXME: fix this bandaid
+  it("regenerates cache when config changes", function()
+    vim.cmd("colorscheme koda-moss")
 
     local cache_before = Utils.cache.read("moss")
     assert.is_not_nil(cache_before, "Initial cache should be created")
@@ -69,7 +70,7 @@ describe("Cache operations:", function()
       styles = { keywords = { italic = true } },
     })
 
-    -- Manually mimic`koda.load()` to generate new cache because of change
+    -- Manually mimic `koda.load()` to generate new cache because of change
     local palette = require("koda.palette.moss")
     local _ = require("koda.groups").setup(palette, Config.options, "moss")
 
