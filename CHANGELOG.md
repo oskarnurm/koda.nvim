@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.12.0](https://github.com/oskarnurm/koda.nvim/compare/v2.11.0...v2.12.0) (2026-08-17)
+
+
+### Features
+
+* support theme-specific color overrides ([#118](https://github.com/oskarnurm/koda.nvim/issues/118)) ([25a5c98](https://github.com/oskarnurm/koda.nvim/commit/25a5c98ca2f6bb0b69f5e2654a78f0d7c7e0721d))
+
 ## [2.11.0](https://github.com/oskarnurm/koda.nvim/compare/v2.10.3...v2.11.0) (2026-06-11)
 
 
